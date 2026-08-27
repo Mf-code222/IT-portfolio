@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Self-hosted homelab portfolio documenting Linux, networking, Proxmox, virtualization, security and infrastructure engineering.">
+  <title>Homelab // Infrastructure Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grid-bg"></div>
+
+  <header class="nav">
+    <a class="brand" href="#top"><span class="dot"></span> HOMELAB<span class="muted">.infra</span></a>
+    <nav>
+      <a href="#architecture">Architecture</a>
+      <a href="#projects">Projects</a>
+      <a href="#troubleshooting">Troubleshooting</a>
+      <a href="#stack">Stack</a>
+    </nav>
+    <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">◐</button>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="eyebrow">SELF-HOSTED INFRASTRUCTURE / 2026</div>
+      <h1>Building systems.<br><span>Breaking them. Fixing them.</span></h1>
+      <p class="hero-copy">
+        A practical homelab focused on Linux administration, networking,
+        virtualization, cybersecurity, deployment and infrastructure design.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#architecture">Explore the lab <span>↓</span></a>
+        <a class="btn secondary" href="https://github.com/Mf-code222" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <div class="terminal">
+        <div class="terminal-bar"><i></i><i></i><i></i><span>homelab@infra:~</span></div>
+        <pre><code><span class="green">$</span> uptime
+<span class="dim">proxmox: online   lenovo: online   network: online</span>
+<span class="green">$</span> cat /etc/motd
+<span class="accent">Build it. Understand it. Document it.</span></code></pre>
+      </div>
+    </section>
+
+    <section id="architecture" class="section">
+      <div class="section-head">
+        <div><div class="eyebrow">01 / ARCHITECTURE</div><h2>Two machines. One lab.</h2></div>
+        <p>The workloads are deliberately separated so the infrastructure itself becomes a learning environment.</p>
+      </div>
+
+      <div class="architecture">
+        <div class="node internet"><span class="node-icon">◎</span><strong>Internet</strong><small>WAN</small></div>
+        <div class="connector horizontal"></div>
+        <div class="node router"><span class="node-icon">⇄</span><strong>Home Network</strong><small>Router / LAN</small></div>
+        <div class="split">
+          <div class="connector vertical"></div>
+          <div class="branch">
+            <div class="node server">
+              <div class="node-top"><span class="badge">PRIMARY</span></div>
+              <span class="node-icon">▣</span><strong>HP ProDesk G4</strong><small>i5 8th Gen · 16 GB · 512 GB SSD</small>
+              <div class="service-list">
+                <span>Proxmox VE</span><span>Debian</span><span>Tailscale</span>
+              </div>
+            </div>
+            <div class="node server">
+              <div class="node-top"><span class="badge purple">COMPUTE</span></div>
+              <span class="node-icon">▣</span><strong>Lenovo ThinkStation</strong><small>40 GB RAM · 1 TB HDD</small>
+              <div class="service-list">
+                <span>Nextcloud</span><span>Local AI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="infra-cards">
+        <article><span class="card-number">A</span><h3>HP / Virtualization</h3><p>Proxmox VE provides isolated Debian workloads and the main infrastructure layer.</p></article>
+        <article><span class="card-number">B</span><h3>Lenovo / Compute</h3><p>Separate physical capacity for memory-intensive local AI and self-hosted services.</p></article>
+        <article><span class="card-number">C</span><h3>Edge / Remote Access</h3><p>Cloudflare, Tailscale and reverse-proxy concepts are used to build secure external access.</p></article>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-head">
+        <div><div class="eyebrow">02 / PROJECTS</div><h2>What is actually running</h2></div>
+        <p>Not just a list of software — each service is an opportunity to understand how systems interact.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project featured">
+          <div class="project-meta"><span>01</span><span class="status">● OPERATIONAL</span></div>
+          <h3>Media Automation Stack</h3>
+          <p>Jellyfin, Sonarr, Radarr, Prowlarr and qBittorrent connected into a complete automated media pipeline.</p>
+          <div class="flow">Prowlarr <b>→</b> Sonarr / Radarr <b>→</b> qBittorrent <b>→</b> Storage <b>→</b> Jellyfin</div>
+          <div class="tags"><span>Linux</span><span>Services</span><span>Networking</span><span>Automation</span></div>
+        </article>
+        <article class="project">
+          <div class="project-meta"><span>02</span><span class="status">● RUNNING</span></div>
+          <h3>Proxmox Infrastructure</h3>
+          <p>Bare-metal virtualization host with Linux VMs, storage management and isolated workloads.</p>
+          <div class="tags"><span>Proxmox</span><span>Debian</span><span>LVM</span></div>
+        </article>
+        <article class="project">
+          <div class="project-meta"><span>03</span><span class="status">● RUNNING</span></div>
+          <h3>Self-Hosted Cloud</h3>
+          <p>Nextcloud on the Lenovo, with HTTPS, authentication, DNS and reverse-proxy architecture.</p>
+          <div class="tags"><span>Nextcloud</span><span>HTTPS</span><span>Cloudflare</span></div>
+        </article>
+        <article class="project">
+          <div class="project-meta"><span>04</span><span class="status">● EXPERIMENTAL</span></div>
+          <h3>Local AI Compute</h3>
+          <p>Separate local inference environment using the Lenovo's additional RAM for heavier workloads.</p>
+          <div class="tags"><span>AI</span><span>Linux</span><span>Compute</span></div>
+        </article>
+        <article class="project">
+          <div class="project-meta"><span>05</span><span class="status">● DEPLOYMENT</span></div>
+          <h3>Secure Remote Access</h3>
+          <p>Tailscale on the Proxmox host and Cloudflare-based public access concepts for controlled connectivity.</p>
+          <div class="tags"><span>Tailscale</span><span>Cloudflare</span><span>Nginx</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="troubleshooting" class="section">
+      <div class="section-head">
+        <div><div class="eyebrow">03 / TROUBLESHOOTING</div><h2>Problems are part of the project.</h2></div>
+        <p>The most valuable part of the lab is the diagnostic process: observe → isolate → test → fix → document.</p>
+      </div>
+      <div class="timeline">
+        <article><div class="time-marker">01</div><div><h3>Ethernet connectivity</h3><p>Diagnosed interface state, addressing, gateway and routing issues. A Raspberry Pi was configured as a temporary router/gateway to restore connectivity.</p><code>ip addr · ip route · ping · systemctl</code></div></article>
+        <article><div class="time-marker">02</div><div><h3>Proxmox console</h3><p>Investigated why <code>qm terminal 100</code> failed and learned the relationship between VM console access and serial interfaces.</p><code>qm config 100 · serial0 · console</code></div></article>
+        <article><div class="time-marker">03</div><div><h3>Linux permissions</h3><p>Resolved a sudo access problem by understanding users, groups, ownership and the sudoers model instead of treating permissions as magic.</p><code>id · groups · sudo · ls -l</code></div></article>
+        <article><div class="time-marker">04</div><div><h3>Storage capacity</h3><p>Inspected the block-device hierarchy and expanded the logical volume so the filesystem could use the available storage.</p><code>lsblk · vgs · lvs · lvextend</code></div></article>
+        <article><div class="time-marker">05</div><div><h3>VPN routing</h3><p>Investigated the performance and network path of qBittorrent through Mullvad while keeping the VPN isolated inside the Debian workload.</p><code>ip route · traceroute · service logs</code></div></article>
+      </div>
+    </section>
+
+    <section id="stack" class="section">
+      <div class="section-head">
+        <div><div class="eyebrow">04 / TECHNOLOGY</div><h2>Infrastructure stack</h2></div>
+      </div>
+      <div class="stack-grid">
+        <div><span>VIRTUALIZATION</span><strong>Proxmox VE</strong><small>VMs · isolation · storage</small></div>
+        <div><span>OPERATING SYSTEM</span><strong>Debian / Linux</strong><small>CLI · services · permissions</small></div>
+        <div><span>NETWORKING</span><strong>TCP/IP · NAT · Routing</strong><small>Gateways · interfaces · DNS</small></div>
+        <div><span>REMOTE ACCESS</span><strong>Tailscale</strong><small>Private remote connectivity</small></div>
+        <div><span>EDGE</span><strong>Cloudflare</strong><small>DNS · Tunnel concepts</small></div>
+        <div><span>WEB</span><strong>Nginx</strong><small>Reverse proxy architecture</small></div>
+        <div><span>SELF-HOSTING</span><strong>Nextcloud</strong><small>Cloud / file platform</small></div>
+        <div><span>MEDIA</span><strong>Jellyfin + *arr</strong><small>Service orchestration</small></div>
+      </div>
+    </section>
+
+    <section class="section learning">
+      <div class="quote">“The goal isn't to install services.<br><span>The goal is to understand the system.</span>”</div>
+      <div class="learning-grid">
+        <div><b>01</b><span>Build</span><p>Deploy a working service from a blank system.</p></div>
+        <div><b>02</b><span>Break</span><p>Run into real failures and constraints.</p></div>
+        <div><b>03</b><span>Diagnose</span><p>Use logs, commands and network evidence.</p></div>
+        <div><b>04</b><span>Document</span><p>Turn the solution into repeatable knowledge.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><span class="dot"></span> HOMELAB.infra</div>
+    <span>Self-hosted · documented · continuously evolving</span>
+    <a href="https://github.com/Mf-code222" target="_blank" rel="noopener">github.com/Mf-code222 ↗</a>
+  </footer>
+  
+<script>
+const toggle = document.getElementById("themeToggle");
+const saved = localStorage.getItem("homelab-theme");
+if (saved === "light") document.body.classList.add("light");
+
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+  localStorage.setItem(
+    "homelab-theme",
+    document.body.classList.contains("light") ? "light" : "dark"
+  );
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener("click", e => {
+    const el = document.querySelector(a.getAttribute("href"));
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
